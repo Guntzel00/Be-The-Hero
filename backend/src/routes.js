@@ -14,31 +14,24 @@ routes.post(
   '/sessions',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
-      id: Joi.string().required()
-    })
+      id: Joi.string().required(),
+    }),
   }),
   sessionController.create
 );
 
-// Setting routes for ngo's actions using an async funcs
+// Setting routes for ngo's actions using an async func
 routes.get('/ngos', ngoController.index);
 routes.post(
   '/ngos',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().required(),
-      email: Joi.string()
-        .required()
-        .email(),
-      whatsapp: Joi.string()
-        .required()
-        .min(11)
-        .max(11),
+      email: Joi.string().required().email(),
+      whatsapp: Joi.string().required().min(11).max(11),
       city: Joi.string().required(),
-      pa: Joi.string()
-        .required()
-        .length(2)
-    })
+      pa: Joi.string().required().length(2),
+    }),
   }),
   ngoController.create
 );
@@ -48,8 +41,8 @@ routes.get(
   '/incidents',
   celebrate({
     [Segments.QUERY]: Joi.object().keys({
-      page: Joi.number()
-    })
+      page: Joi.number(),
+    }),
   }),
   incidentController.index
 );
@@ -57,18 +50,13 @@ routes.post(
   '/incidents',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
-      title: Joi.string()
-        .required()
-        .max(30)
-        .min(4),
-      description: Joi.string()
-        .required()
-        .max(300),
-      value: Joi.number().required()
+      title: Joi.string().required().max(30).min(4),
+      description: Joi.string().required().max(300),
+      value: Joi.number().required(),
     }),
     [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required()
-    }).unknown()
+      authorization: Joi.string().required(),
+    }).unknown(),
   }),
   incidentController.create
 );
@@ -76,8 +64,8 @@ routes.delete(
   '/incidents/:id',
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
-      id: Joi.number().required()
-    })
+      id: Joi.number().required(),
+    }),
   }),
   incidentController.delete
 );
@@ -87,8 +75,8 @@ routes.get(
   '/profile',
   celebrate({
     [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required()
-    }).unknown()
+      authorization: Joi.string().required(),
+    }).unknown(),
   }),
   profileController.index
 );
