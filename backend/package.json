@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gustavo Guntzel de Souza",
   "license": "ISC",
   "dependencies": {
     "celebrate": "^12.0.1",
@@ -16,11 +17,12 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "knex": "^0.20.13",
-    "sqlite3": "^4.1.1"
+    "pg": "^8.0.0"
   },
   "devDependencies": {
     "jest": "^25.2.4",
     "nodemon": "^2.0.2",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "sqlite3": "^4.1.1"
   }
 }

@@ -6,6 +6,6 @@ const env =
     ? configuration.test
     : configuration.development;
 
-const connection = knex(configuration.development); //Passind the development connection as a parameter
+const connection = knex(configuration.development); //Passing the development connection as a parameter
 
 module.exports = connection; // exporting connection variable to comunicate with the DB

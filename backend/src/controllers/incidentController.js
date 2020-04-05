@@ -7,8 +7,6 @@ module.exports = {
 
     const [count] = await connection('incidents').count();
 
-    console.log(count);
-
     const incidents = await connection('incidents')
       .join('ngos', 'ngos.id', '=', 'incidents.ngo_id')
       .limit(5) // Setting Numbers of incidences lmimit
